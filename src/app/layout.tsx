@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     "Free online tool to extract, analyze, and decode query parameters from any URL including shortened URLs. Supports redirects, Proofpoint URLs, and exports results as JSON.",
   keywords:
     "URL analyzer, query string parser, URL parameters, extract query params, URL decoder, shortened URL analyzer, Proofpoint URL decoder, online URL tool",
-  authors: [{ name: "Azeez Lawal", email: "a6ee6@yahoo.com" }],
+  authors: [{ name: "Azeez Lawal" }],
   creator: "Azeez Lawal",
   publisher: "URL Query Analyzer",
   formatDetection: {
