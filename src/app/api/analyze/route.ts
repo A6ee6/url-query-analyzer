@@ -87,7 +87,7 @@ function findEmbeddedUrls(url: string): string[] {
 
 export async function POST(request: Request) {
   try {
-    const { url } = await request.json();
+    const { url, followRedirect = true } = await request.json();
 
     if (!url) {
       return NextResponse.json({ error: "URL is required" }, { status: 400 });
@@ -103,28 +103,34 @@ export async function POST(request: Request) {
       finalUrl = proofpointUrl;
     }
 
-    // STEP 2: Try to follow redirects (may not work for all campaign URLs)
-    try {
-      console.log("Attempting to follow redirects for:", finalUrl);
+    // STEP 2: Try to follow redirects (only if followRedirect is true)
+    if (followRedirect) {
+      try {
+        console.log("Attempting to follow redirects for:", finalUrl);
 
-      const response = await fetch(finalUrl, {
-        method: "GET",
-        redirect: "follow",
-        headers: {
-          "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
-          Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
-          "Accept-Language": "en-US,en;q=0.5",
-        },
-      });
+        const response = await fetch(finalUrl, {
+          method: "GET",
+          redirect: "follow",
+          headers: {
+            "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+            Accept: "text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,*/*;q=0.8",
+            "Accept-Language": "en-US,en;q=0.5",
+          },
+        });
 
-      // If we got a different URL after redirects, use it
-      if (response.url && response.url !== finalUrl) {
-        console.log("Redirect found:", response.url);
-        finalUrl = response.url;
+        // If we got a different URL after redirects, use it
+        if (response.url && response.url !== finalUrl) {
+          console.log("Redirect found:", response.url);
+          finalUrl = response.url;
+        }
+      } catch (fetchError) {
+        console.log("Fetch failed (expected for some campaign URLs):", fetchError);
+        // Continue with the URL we have
       }
-    } catch (fetchError) {
-      console.log("Fetch failed (expected for some campaign URLs):", fetchError);
-      // Continue with the URL we have
+    } else {
+      console.log("Follow redirects disabled, using original URL");
+      // When followRedirect is false, use the original URL (not the proofpoint extracted one)
+      finalUrl = url;
     }
 
     // STEP 3: Parse the final URL and extract query parameters

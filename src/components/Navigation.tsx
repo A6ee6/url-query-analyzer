@@ -5,10 +5,6 @@ import { usePathname } from "next/navigation";
 
 const navItems = [
   { name: "Query Analyzer", path: "/" },
-  { name: "URL Breakdown", path: "/breakdown" },
-  { name: "Compare URLs", path: "/compare" },
-  { name: "URL Builder", path: "/builder" },
-  { name: "Batch Analyzer", path: "/batch" },
   { name: "QR Generator", path: "/qr-code" },
 ];
 

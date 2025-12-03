@@ -8,8 +8,10 @@ export { default as Header } from "./Header";
 export { default as LoadingState } from "./LoadingState";
 export { default as NoParametersWarning } from "./NoParametersWarning";
 export { default as QueryTable } from "./QueryTable";
+export { default as AlignedQueryTable } from "./AlignedQueryTable";
 export { default as UrlInput } from "./UrlInput";
 export { default as UrlResults } from "./UrlResults";
+export { default as ComparisonTable } from "./ComparisonTable";
 export { default as Navigation } from "./Navigation";
 export { default as PageLayout } from "./PageLayout";
 
