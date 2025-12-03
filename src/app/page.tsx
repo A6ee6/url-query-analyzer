@@ -30,13 +30,15 @@ export default function Home() {
   const currentYear = new Date().getFullYear();
 
   useEffect(() => {
-    // Check for saved theme preference or system preference
+    // Check for saved theme preference, default to light mode
     const savedTheme = localStorage.getItem("theme");
-    const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
 
-    if (savedTheme === "dark" || (!savedTheme && systemPrefersDark)) {
+    if (savedTheme === "dark") {
       setDarkMode(true);
       document.documentElement.classList.add("dark");
+    } else if (!savedTheme) {
+      // Set default to light
+      localStorage.setItem("theme", "light");
     }
   }, []);
 
