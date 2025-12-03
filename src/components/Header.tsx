@@ -10,41 +10,34 @@ interface HeaderProps {
 
 export default function Header({ darkMode, onToggleDarkMode, hideTitle = false }: HeaderProps) {
   return (
-    <header className="relative glass-effect border-b border-purple-500/10 dark:border-slate-700/50">
-      <div className="absolute inset-0 gradient-primary opacity-5 dark:opacity-10"></div>
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+    <header className="material-surface border-b border-gray-200 dark:border-gray-700">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          <Link href="/" className="flex items-center space-x-4 group">
-            <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-br from-purple-500 to-blue-500 rounded-2xl blur-lg opacity-50 group-hover:opacity-75 transition-opacity"></div>
-              <div className="relative bg-gradient-to-br from-purple-500 to-blue-500 p-3 rounded-2xl transform group-hover:scale-105 transition-transform">
-                <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2.5}
-                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
-                  />
-                </svg>
-              </div>
+          <Link href="/" className="flex items-center space-x-3">
+            <div className="bg-indigo-500 p-2 rounded-lg">
+              <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                />
+              </svg>
             </div>
             {!hideTitle && (
               <div>
-                <h1 className="text-2xl md:text-3xl font-bold bg-gradient-to-r from-purple-600 via-blue-600 to-purple-600 dark:from-purple-400 dark:via-blue-400 dark:to-purple-400 bg-clip-text text-transparent">
-                  URL Query Analyzer
-                </h1>
-                <p className="text-slate-600 dark:text-slate-400 text-sm md:text-base mt-1">Extract, analyze & compare URL parameters with ease</p>
+                <h1 className="text-xl md:text-2xl font-semibold text-gray-900 dark:text-white">URL Query Analyzer</h1>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mt-1">Extract, analyze & compare URL parameters</p>
               </div>
             )}
           </Link>
           <button
             onClick={onToggleDarkMode}
-            className="relative p-3 rounded-xl glass-effect hover:scale-105 transition-all duration-300 border border-purple-500/20 dark:border-slate-600/50 group"
+            className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             aria-label="Toggle dark mode"
           >
-            <div className="absolute inset-0 bg-gradient-to-br from-purple-500/10 to-blue-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity"></div>
             {darkMode ? (
-              <svg className="w-6 h-6 text-amber-400 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-yellow-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -53,7 +46,7 @@ export default function Header({ darkMode, onToggleDarkMode, hideTitle = false }
                 />
               </svg>
             ) : (
-              <svg className="w-6 h-6 text-slate-700 relative z-10" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"

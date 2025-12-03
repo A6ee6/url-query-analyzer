@@ -1,6 +1,4 @@
 {
-  "/_not-found": "app/_not-found.js",
-  "/api/analyze/route": "app/api/analyze/route.js",
-  "/page": "app/page.js",
-  "/qr-code/page": "app/qr-code/page.js"
+  "/not-found": "app/not-found.js",
+  "/page": "app/page.js"
 }

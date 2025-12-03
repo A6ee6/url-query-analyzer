@@ -1,10 +1,6 @@
 "use client";
 
-export type QueryParam = {
-  name: string;
-  value: string;
-  isUrl?: boolean;
-};
+import { QueryParam } from "./QueryTable";
 
 interface AlignedQueryTableProps {
   queryParams: QueryParam[];

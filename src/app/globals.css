@@ -4,48 +4,91 @@
 
 @layer base {
   :root {
-    /* Aiwave-inspired color palette */
-    --color-primary: 139 92 246; /* Purple-500 */
-    --color-primary-dark: 124 58 237; /* Purple-600 */
-    --color-secondary: 59 130 246; /* Blue-500 */
-    --color-accent: 236 72 153; /* Pink-500 */
-    --color-success: 34 197 94; /* Green-500 */
-    --color-warning: 251 146 60; /* Orange-400 */
+    /* Agroxa Material Design color palette */
+    --color-primary: 63 81 181; /* Indigo-500 */
+    --color-primary-dark: 48 63 159; /* Indigo-600 */
+    --color-primary-light: 79 98 208; /* Indigo-400 */
+    --color-secondary: 0 150 136; /* Teal-500 */
+    --color-accent: 233 30 99; /* Pink-500 */
+    --color-success: 76 175 80; /* Green-500 */
+    --color-warning: 255 152 0; /* Orange-500 */
+    --color-error: 244 67 54; /* Red-500 */
 
-    /* Gradient backgrounds */
-    --gradient-primary: linear-gradient(135deg, rgb(139 92 246) 0%, rgb(59 130 246) 100%);
-    --gradient-secondary: linear-gradient(135deg, rgb(236 72 153) 0%, rgb(239 68 68) 100%);
-    --gradient-mesh: radial-gradient(at 40% 20%, rgb(139 92 246 / 0.3) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgb(59 130 246 / 0.2) 0px, transparent 50%), radial-gradient(at 0% 50%, rgb(236 72 153 / 0.2) 0px, transparent 50%);
+    /* Material Design surfaces */
+    --surface: 255 255 255; /* White */
+    --surface-variant: 248 250 252; /* Slate-50 */
+    --background: 250 250 250; /* Grey-50 */
+    --on-surface: 33 33 33; /* Grey-900 */
+    --on-background: 66 66 66; /* Grey-700 */
+
+    /* Clean gradients */
+    --gradient-primary: linear-gradient(135deg, rgb(63 81 181) 0%, rgb(79 98 208) 100%);
+    --gradient-secondary: linear-gradient(135deg, rgb(0 150 136) 0%, rgb(77 182 172) 100%);
   }
 
   .dark {
-    --gradient-mesh: radial-gradient(at 40% 20%, rgb(139 92 246 / 0.15) 0px, transparent 50%),
-      radial-gradient(at 80% 0%, rgb(59 130 246 / 0.1) 0px, transparent 50%), radial-gradient(at 0% 50%, rgb(236 72 153 / 0.1) 0px, transparent 50%);
+    --surface: 18 18 18; /* Grey-900 */
+    --surface-variant: 33 33 33; /* Grey-800 */
+    --background: 24 24 24; /* Grey-900 */
+    --on-surface: 255 255 255; /* White */
+    --on-background: 224 224 224; /* Grey-200 */
   }
 }
 
 @layer utilities {
   .gradient-primary {
-    background: linear-gradient(135deg, rgb(139 92 246) 0%, rgb(59 130 246) 100%);
+    background: linear-gradient(135deg, rgb(63 81 181) 0%, rgb(79 98 208) 100%);
   }
 
   .gradient-secondary {
-    background: linear-gradient(135deg, rgb(236 72 153) 0%, rgb(239 68 68) 100%);
+    background: linear-gradient(135deg, rgb(0 150 136) 0%, rgb(77 182 172) 100%);
   }
 
-  .gradient-mesh {
-    background: var(--gradient-mesh);
+  .material-surface {
+    background: rgb(var(--surface));
+    color: rgb(var(--on-surface));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
   }
 
-  .glass-effect {
-    background: rgba(255, 255, 255, 0.7);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
+  .dark .material-surface {
+    background: rgb(var(--surface));
+    color: rgb(var(--on-surface));
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
   }
 
-  .dark .glass-effect {
-    background: rgba(15, 23, 42, 0.7);
+  .material-card {
+    background: rgb(var(--surface));
+    border: 1px solid rgba(var(--on-surface), 0.12);
+    border-radius: 16px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1), 0 1px 2px rgba(0, 0, 0, 0.06);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .dark .material-card {
+    background: rgb(var(--surface));
+    border: 1px solid rgba(var(--on-surface), 0.12);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3), 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
+
+  .material-card:hover {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.06);
+    transform: translateY(-1px);
+  }
+
+  .material-button {
+    background: rgb(var(--color-primary));
+    color: white;
+    border-radius: 8px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .material-button:hover {
+    background: rgb(var(--color-primary-dark));
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   }
 
   .animate-float {
