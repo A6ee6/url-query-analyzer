@@ -134,7 +134,7 @@ export default function Home() {
   const hasResults = queryParams.length > 0 || !!finalUrl;
 
   return (
-    <PageLayout title="Query String Analyzer" description="Extract and analyze query parameters from any URL, including shortened URLs and Proofpoint links.">
+    <PageLayout>
       <ContentWrapper>
         <UrlInput
           url={url}
