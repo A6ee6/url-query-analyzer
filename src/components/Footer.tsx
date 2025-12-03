@@ -5,7 +5,7 @@ interface FooterProps {
 export default function Footer({ currentYear }: FooterProps) {
   return (
     <footer className="bg-slate-900 dark:bg-slate-950 text-white py-8 px-4 border-t border-slate-800">
-      <div className="max-w-6xl mx-auto">
+      <div className="max-w-7xl mx-auto">
         <div className="text-center">
           <div className="flex items-center justify-center mb-4">
             <div className="bg-slate-800 dark:bg-slate-800/50 p-2 rounded-lg mr-3 border border-slate-700">

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import PageLayout from "@/components/PageLayout";
 
 export default function QRCodePage() {
@@ -147,7 +148,15 @@ export default function QRCodePage() {
               </div>
 
               <div className="flex items-center justify-center p-8 bg-white dark:bg-slate-900/50 rounded-xl border-2 border-dashed border-slate-300 dark:border-slate-600">
-                <img src={qrCodeUrl} alt="QR Code" className="max-w-full h-auto" style={{ imageRendering: "pixelated" }} />
+                <Image
+                  src={qrCodeUrl}
+                  alt="QR Code"
+                  width={parseInt(size)}
+                  height={parseInt(size)}
+                  className="max-w-full h-auto"
+                  style={{ imageRendering: "pixelated" }}
+                  unoptimized
+                />
               </div>
 
               <div className="p-4 bg-blue-50 dark:bg-blue-900/20 rounded-xl border border-blue-200 dark:border-blue-800/50">
@@ -167,7 +176,7 @@ export default function QRCodePage() {
                 />
               </svg>
               <p className="text-slate-500 dark:text-slate-400 text-lg font-medium">No QR code generated yet</p>
-              <p className="text-slate-400 dark:text-slate-500 text-sm mt-2">Enter a URL and click "Generate QR Code"</p>
+              <p className="text-slate-400 dark:text-slate-500 text-sm mt-2">Enter a URL and click &quot;Generate QR Code&quot;</p>
             </div>
           )}
         </div>
