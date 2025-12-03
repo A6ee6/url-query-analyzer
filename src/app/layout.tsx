@@ -10,8 +10,8 @@ export const metadata: Metadata = {
     "Free online tool to extract, analyze, and decode query parameters from any URL including shortened URLs. Supports redirects, Proofpoint URLs, and exports results as JSON.",
   keywords:
     "URL analyzer, query string parser, URL parameters, extract query params, URL decoder, shortened URL analyzer, Proofpoint URL decoder, online URL tool",
-  authors: [{ name: "URL Query Analyzer" }],
-  creator: "URL Query Analyzer",
+  authors: [{ name: "Azeez Lawal", email: "a6ee6@yahoo.com" }],
+  creator: "Azeez Lawal",
   publisher: "URL Query Analyzer",
   formatDetection: {
     email: false,
@@ -81,6 +81,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: "https://url-query-analyzer.vercel.app",
               applicationCategory: "DeveloperApplication",
               operatingSystem: "Any",
+              author: {
+                "@type": "Person",
+                name: "Azeez Lawal",
+                email: "a6ee6@yahoo.com",
+                telephone: "+44 7723 201502",
+              },
               offers: {
                 "@type": "Offer",
                 price: "0",

@@ -99,7 +99,11 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📞 Contact
 
-For questions or feedback, please open an issue on GitHub.
+**Azeez Lawal**  
+Email: a6ee6@yahoo.com  
+Phone: +44 7723 201502
+
+For questions, feedback, or collaboration opportunities, please reach out!
 
 ---
 
