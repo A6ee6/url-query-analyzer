@@ -1,20 +1,8 @@
 "use client";
 
-import { useState, useEffect } from "react";
-import {
-  BackgroundWrapper,
-  Header,
-  UrlInput,
-  LoadingState,
-  ErrorState,
-  UrlResults,
-  QueryTable,
-  NoParametersWarning,
-  FeatureCards,
-  ContentWrapper,
-  Footer,
-  QueryParam,
-} from "@/components";
+import { useState } from "react";
+import PageLayout from "@/components/PageLayout";
+import { UrlInput, LoadingState, ErrorState, UrlResults, QueryTable, NoParametersWarning, FeatureCards, ContentWrapper, QueryParam } from "@/components";
 
 export default function Home() {
   const [url, setUrl] = useState("");
@@ -24,35 +12,7 @@ export default function Home() {
   const [finalUrl, setFinalUrl] = useState("");
   const [originalUrl, setOriginalUrl] = useState("");
   const [wasProofpoint, setWasProofpoint] = useState(false);
-  const [darkMode, setDarkMode] = useState(false);
   const [copied, setCopied] = useState<string | null>(null);
-
-  const currentYear = new Date().getFullYear();
-
-  useEffect(() => {
-    // Check for saved theme preference, default to light mode
-    const savedTheme = localStorage.getItem("theme");
-
-    if (savedTheme === "dark") {
-      setDarkMode(true);
-      document.documentElement.classList.add("dark");
-    } else if (!savedTheme) {
-      // Set default to light
-      localStorage.setItem("theme", "light");
-    }
-  }, []);
-
-  const toggleDarkMode = () => {
-    const newDarkMode = !darkMode;
-    setDarkMode(newDarkMode);
-    if (newDarkMode) {
-      document.documentElement.classList.add("dark");
-      localStorage.setItem("theme", "dark");
-    } else {
-      document.documentElement.classList.remove("dark");
-      localStorage.setItem("theme", "light");
-    }
-  };
 
   const copyToClipboard = async (text: string, id: string) => {
     try {
@@ -129,9 +89,7 @@ export default function Home() {
   const hasResults = queryParams.length > 0 || !!finalUrl;
 
   return (
-    <BackgroundWrapper darkMode={darkMode}>
-      <Header darkMode={darkMode} onToggleDarkMode={toggleDarkMode} />
-
+    <PageLayout title="Query String Analyzer" description="Extract and analyze query parameters from any URL, including shortened URLs and Proofpoint links.">
       <ContentWrapper>
         <UrlInput
           url={url}
@@ -161,8 +119,6 @@ export default function Home() {
         {/* Features Section */}
         {!originalUrl && <FeatureCards />}
       </ContentWrapper>
-
-      <Footer currentYear={currentYear} />
-    </BackgroundWrapper>
+    </PageLayout>
   );
 }

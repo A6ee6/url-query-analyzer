@@ -1,4 +1,8 @@
 {
-  "/page": "app/page.js",
-  "/api/analyze/route": "app/api/analyze/route.js"
+  "/not-found": "app/not-found.js",
+  "/compare/page": "app/compare/page.js",
+  "/qr-code/page": "app/qr-code/page.js",
+  "/breakdown/page": "app/breakdown/page.js",
+  "/builder/page": "app/builder/page.js",
+  "/batch/page": "app/batch/page.js"
 }

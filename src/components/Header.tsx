@@ -1,18 +1,21 @@
 "use client";
 
+import Link from "next/link";
+
 interface HeaderProps {
   darkMode: boolean;
   onToggleDarkMode: () => void;
+  compact?: boolean;
 }
 
-export default function Header({ darkMode, onToggleDarkMode }: HeaderProps) {
+export default function Header({ darkMode, onToggleDarkMode, compact = false }: HeaderProps) {
   return (
     <header className="bg-gradient-to-r from-blue-600 via-blue-600 to-indigo-600 dark:from-slate-800 dark:via-slate-800 dark:to-slate-800 text-white shadow-md shadow-blue-500/20 dark:shadow-none border-b border-blue-500/20 dark:border-slate-700">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
         <div className="flex justify-between items-center">
-          <div className="flex items-center space-x-4">
-            <div className="bg-white/15 dark:bg-slate-700/50 backdrop-blur-sm p-3 rounded-xl border border-white/10 dark:border-slate-600/50">
-              <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <Link href="/" className="flex items-center space-x-3 hover:opacity-90 transition-opacity">
+            <div className="bg-white/15 dark:bg-slate-700/50 backdrop-blur-sm p-2 rounded-xl border border-white/10 dark:border-slate-600/50">
+              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
@@ -22,10 +25,10 @@ export default function Header({ darkMode, onToggleDarkMode }: HeaderProps) {
               </svg>
             </div>
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold tracking-tight">URL Query String Analyzer</h1>
-              <p className="text-blue-100 dark:text-slate-400 text-sm md:text-base mt-1">Extract and analyze query parameters from any URL</p>
+              <h1 className="text-xl md:text-2xl font-bold tracking-tight">URL Tools Suite</h1>
+              {!compact && <p className="text-blue-100 dark:text-slate-400 text-xs md:text-sm mt-0.5">Professional URL analysis and manipulation tools</p>}
             </div>
-          </div>
+          </Link>
           <button
             onClick={onToggleDarkMode}
             className="p-3 rounded-xl bg-white/15 dark:bg-slate-700/50 backdrop-blur-sm hover:bg-white/25 dark:hover:bg-slate-600/50 transition-all duration-300 border border-white/10 dark:border-slate-600/50"
