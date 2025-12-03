@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://url-query-analyzer.vercel.app/sitemap.xml
